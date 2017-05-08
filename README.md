@@ -3,7 +3,7 @@ A collection of my best for your consideration.
 
 **1. ASP.NET Order Manager**
 
-ASP.NET Webforms application in Visual Studio. Pizza menu order manager; demonstrating .NET application architecture and spike of functionality. Persists user order input to the database. Orders Log page retrieves order information and displays as grid. Marking order complete removes order information from Orders Log display.
+ASP.NET Webforms application in Visual Studio. Pizza menu order manager demonstrating .NET application architecture and spike of functionality. Persists user order input to the database. Orders Log page retrieves database order information and displays as grid. Marking order complete removes order information from Orders Log display.
 
 **2. JS-menu-order-mgr**
 
