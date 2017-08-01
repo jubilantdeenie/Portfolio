@@ -14,7 +14,7 @@ JavaScript jQuery functional pizza menu and order manager. Menu selection update
 Python 3.6 including tKinter GUI. Browse to a source folder. Checks for files updated since
 last check. Copies those to a selected destination folder and records time of transfer to SQLite3 database.
 
-**3. Images from web and design projects**
+**4. Images from web and design projects**
 
 Sample pages from Wordpress websites with WooCommerce created for ZD Design. Design is matched from provided Photoshop comps.
 .
