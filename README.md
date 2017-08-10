@@ -1,4 +1,4 @@
-# Daniel Wallace Portfolio
+# Portfolio
 A collection of my best for your consideration.
 
 Portland based creative working in software development with education in media arts and animation. Focused on full stack development with an eye for clean front end design.
