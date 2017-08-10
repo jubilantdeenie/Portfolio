@@ -5,7 +5,9 @@ Portland based creative working in software development with education in media 
 
 My skills set includes a solid foundation in the .NET framework, C#, Python, SQL, JavaScript including jQuery and Angular, CSS, and HTML. I have used Git and TFS version control. I have also worked in WordPress.
 
-In addition to my development experience, I have an education in 3d art and animation, utilizing such software as Maya, After Effects, Photoshop, and Illustrator. As an instructor at The Tech Academy I have learned to communicate effectively in a development environment. My solid people skills will be a welcome contribution to communications among team members and non technical clients alike.
+In addition to my development experience, I have an education in 3d art and animation, utilizing such software as Maya, After Effects, Photoshop, and Illustrator. 
+
+As an instructor at The Tech Academy I have learned to communicate effectively in a development environment. My solid people skills will be a welcome contribution to communications among team members and non technical clients alike.
 
 **Personal portfolio website**
 http://wallacedaniel.com
