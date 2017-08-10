@@ -32,7 +32,6 @@ Python 3.6 including tKinter GUI and SQSQLite3 database.
 Sample pages from Wordpress websites with WooCommerce.
 
 **Other projects of note**
-
 Links to a few of my evolving projects on GitHub which demonstrate varying skills but are not yet ready for my portfolio.
 
 Angular JS character designer:
