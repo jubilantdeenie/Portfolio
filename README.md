@@ -16,6 +16,7 @@ http://wallacedaniel.com
 wallacedaniel999@gmail.com
 
 **See Read Me files within individual projects for further information on each.**
+
 **1. JS-menu-order-mgr**
 JavaScript jQuery functional pizza menu and order manager.
 View the project live:
