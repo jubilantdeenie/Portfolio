@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+	// The two most helpful examples for this is:
+    // https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+    // https://wrightshq.com/playground/placing-multiple-markers-on-a-google-map-using-api-3/
+	
+  function initMap() {
+	var markers = [
+            {address: 'Uluru, Australia', position: {lat: -25.363, lng: 131.044}, info: '<h3>A National Park in Australia</h3>'},
+            {address: '310 SW 4th Ave Portland, OR 97204', position: {lat: 45.632, lng: -122.672}, info: '<h3>Company: The Tech Academy</h3>' + '<p>Street Address:310 SW 4th Ave Portland, OR 97204</p>' + '<p><a href="https://www.learncodinganywhere.com/">2 open positions</a></p>'},
+	        {address: 'Portland, OR', position: {lat: 45.523, lng: -122.677}, info: '<h3>A Company in Portland</h3>' + '<p>Street Address</p><p><a href="http://localhost:54989/?jobLocation=Portland%2C+OR&SearchString=">9 open positions</a></p>'},
+            {address: 'Vancouver, WA', position: {lat: 45.632, lng: -122.672}, info: '<h3>A city in Washington</h3>' + '<p>In the USA</p>'},
+        ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: markers[1].position
+    });
+
+	var infoWindow = new google.maps.InfoWindow(), marker, i
+	var geocoder = new google.maps.Geocoder();
+	
+	//var bounds = new google.maps.LatLngBounds();
+	// instead of the commented line above, simulate a static variable for the Map Bounds:
+	rightSizeMap.bounds = new google.maps.LatLngBounds();
+	
+	// For testing, set i = 0 below to include the map coordinate from Australia
+	for (i = 1; i < markers.length; i++) {
+
+	  // In the final version, you won't call geocoder. You would simply call do this:
+	  //   position = new google.maps.LatLng(latitude, longitude)
+	  //   marker = new google.maps.Marker({position:position, map: map, title: .... })
+	  // Then add the info window (see code below):
+	  //   google.maps.event.addListener...
+	  geocoder.geocode({'address': markers[i].address}, function(i, markers) {
+	    return(function(results, status) {
+			if (status == 'OK') {
+
+			  var marker = new google.maps.Marker({
+				position: results[0].geometry.location,
+				map: map,
+			    title: markers[i].address
+			  });
+
+			  // Allow each marker to have an info window    
+			  google.maps.event.addListener(marker, 'click', (function() {
+				return function() {
+					infoWindow.setContent(markers[i].info);
+					//infoWindow.setContent('x')
+					infoWindow.open(map, marker);
+				}
+			  })(marker, i, markers));
+			  
+			  rightSizeMap(marker.getPosition(), i, markers.length, map); 
+			}
+			  
+			else {
+			  // warning message
+			  console.log("The Map:Geocode was not successful for the following reason: " + status);
+			}
+		  });
+	  }(i, markers));
+	}
+	
+	
+	// Overide our map zoom level if it's too large.
+	// For example: if only one point was plotted, the zoom will be very large.
+    var listener = google.maps.event.addListener(map, "idle", function() { 
+  	  if (map.getZoom() > 15) map.setZoom(15); 
+        google.maps.event.removeListener(listener); 
+      });
+  }
+  
+  // Note: In the final version, we won't need to enclose the bounds variable in a function,
+  // because it won't need to be set inside an anonymous function. See the following for examples where you have the latitude and longitude:
+  // https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+  // https://wrightshq.com/playground/placing-multiple-markers-on-a-google-map-using-api-3/
+  function rightSizeMap(position, count, numOfPoints, map)
+  {
+	
+	//RightsSizeMap... simulate a static variable for the map bounds:
+	rightSizeMap.bounds.extend(position)
+	
+	
+	if (count == numOfPoints-1) {
+		// We've plotted all the points, 
+
+		map.fitBounds(rightSizeMap.bounds)
+	}
+  }
+      
+    //The google maps API is below. After key=.
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYnMm7ncYZux13_XA6Rn018RA5CxPkwao&callback=initMap">
+    </script>
+  </body>
+</html>
